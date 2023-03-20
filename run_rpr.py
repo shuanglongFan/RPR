@@ -88,7 +88,7 @@ def rpr_cali(ho_num, k_num, bin_num, data_dire, lower_degree=4, upper_degree=15,
     for seed_num in range(0, ho_num):
         vali_rpr[:, seed_num] = prob_vali_rpr[mce_minimum_index[seed_num], :, seed_num]
 
-    # loading prediction probabilities on the testing data
+    # loading prediction probabilities on the testing data and performing calibration
     pre_prob_test = pd.read_csv("pre_prob_test.csv")
     rpr_prob_test = np.zeros((pre_prob_test.shape[0], ho_num))
 
