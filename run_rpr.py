@@ -10,9 +10,9 @@ def rpr_cali(ho_num, k_num, bin_num, data_dire, lower_degree=4, upper_degree=15,
         ho_num: the number of hold-out test
         k_num: k-fold cross-validation
         bin_num: used for calibration evaluation in validation data
-        para_degree: polynomial degree
-        para_lambda: the constant for l1 norm
-        data_dire: the directory must contain true_label_train.csv pre_prob_vali.csv pre_prob_test.csv
+	data_dire: the directory must contain true_label_train.csv pre_prob_vali.csv pre_prob_test.csv
+        degree: polynomial degree
+        lambda: the constant for l1 norm
     """
     
     os.chdir(data_dire)
