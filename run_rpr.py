@@ -20,7 +20,7 @@ def rpr_cali(ho_num, k_num, bin_num, data_dire, lower_degree=4, upper_degree=15,
     para_lamb = [5 ** x for x in range(lower_lambda, upper_lambda, 1)]
 
     # loading data
-	data_label = pd.read_csv("true_label_train.csv")  # each column corresponds to the whole training data of one hold-out test
+    data_label = pd.read_csv("true_label_train.csv")  # each column corresponds to the whole training data of one hold-out test
     data_prob = pd.read_csv("pre_prob_vali.csv")  # each column corresponds to the whole validation data of one hold-out test
 
     # setting the combination of hyper-parameters
