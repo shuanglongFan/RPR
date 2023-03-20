@@ -2,7 +2,7 @@
 Shape restricted polynomial regression
 
 RPR is a flexible method to perform probability calibration via a polynomial regression. Specifically, this package does the following things:
-- Peforming cross validation to find optimal degree and lambda using the training data
+- Peforming cross validation to find optimal polynomial degree and regularization constant using the training data
 - Fitting polynomial regression with the optimal hyper-parameters using the whole training data
 - Calibrating the probability on the testing data
 
