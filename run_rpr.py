@@ -20,7 +20,7 @@ def rpr_cali(ho_num, k_num, bin_num, data_dire, lower_degree=4, upper_degree=15,
     para_lamb = [5 ** x for x in range(lower_lambda, upper_lambda, 1)]
 
     # loading data
-    data_label = pd.read_csv("true_label_train.csv")  # each column corresponds to the whole training data of one hold-out test
+	data_label = pd.read_csv("true_label_train.csv")  # each column corresponds to the whole training data of one hold-out test
     data_prob = pd.read_csv("pre_prob_vali.csv")  # each column corresponds to the whole validation data of one hold-out test
 
     # setting the combination of hyper-parameters
@@ -118,12 +118,12 @@ def rpr_cali(ho_num, k_num, bin_num, data_dire, lower_degree=4, upper_degree=15,
     pd.DataFrame(rpr_prob_test).to_csv("rpr_prob_test.csv")
 
 if __name__ == '__main__':
-	import argparse
-	parser = argparse.ArgumentParser()
-	parser.add_argument('--ho_num', metavar='ho_num', type=int, default=None, required=True, help='number of hold out test')
-	parser.add_argument('--k_num', metavar='k_num', type=int, default=None, required=True, help='k-fold cross validation')
-	parser.add_argument('--bin_num', metavar='bin_num', type=int, default=None, required=True, help='number of bins')
-	parser.add_argument('--data_dire', metavar='data_dire', default=None, help='data directory')
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--ho_num', metavar='ho_num', type=int, default=None, required=True, help='number of hold out test')
+    parser.add_argument('--k_num', metavar='k_num', type=int, default=None, required=True, help='k-fold cross validation')
+    parser.add_argument('--bin_num', metavar='bin_num', type=int, default=None, required=True, help='number of bins')
+    parser.add_argument('--data_dire', metavar='data_dire', default=None, help='data directory')
 	parser.add_argument('--lower_degree', metavar='lower_degree', type=int, default=4, required=True, help='lower degree')
 	parser.add_argument('--upper_degree', metavar='upper_degree', type=int, default=15, required=True, help='upper degree')
 	parser.add_argument('--lower_lambda', metavar='lower_lambda', type=int, default=-2, required=True, help='lower lambda')
