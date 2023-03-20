@@ -4,7 +4,7 @@ import main_funs as funs
 import datetime
 import os
 
-def rpr_cali(ho_num=100, k_num=3, bin_num=10, para_degree=list(range(4, 15)), para_lambda=list(range(-2, 2, 1)), data_dire):
+def rpr_cali(ho_num, k_num, bin_num, data_dire, lower_degree=4, upper_degree=15, lower_lambda=-2, upper_lambda=2):
     """
     parameters:
         ho_num: the number of hold-out test
@@ -16,7 +16,8 @@ def rpr_cali(ho_num=100, k_num=3, bin_num=10, para_degree=list(range(4, 15)), pa
     """
     
     os.chdir(data_dire)
-    para_lamb = [5 ** x for x in para_lamb]
+    para_degree = list(range(lower_degree, upper_degree))
+    para_lamb = [5 ** x for x in range(lower_lambda, upper_lambda, 1)]
 
     # loading data
     data_label = pd.read_csv("true_label_train.csv")  # each column corresponds to the whole training data of one hold-out test
@@ -115,3 +116,19 @@ def rpr_cali(ho_num=100, k_num=3, bin_num=10, para_degree=list(range(4, 15)), pa
         print("==" * 25, end="\n")
 
     pd.DataFrame(rpr_prob_test).to_csv("rpr_prob_test.csv")
+
+if __name__ == '__main__':
+	import argparse
+	parser = argparse.ArgumentParser()
+	parser.add_argument('--ho_num', metavar='ho_num', type=int, default=None, required=True, help='number of hold out test')
+	parser.add_argument('--k_num', metavar='k_num', type=int, default=None, required=True, help='k-fold cross validation')
+	parser.add_argument('--bin_num', metavar='bin_num', type=int, default=None, required=True, help='number of bins')
+	parser.add_argument('--data_dire', metavar='data_dire', default=None, help='data directory')
+	parser.add_argument('--lower_degree', metavar='lower_degree', type=int, default=4, required=True, help='lower degree')
+	parser.add_argument('--upper_degree', metavar='upper_degree', type=int, default=15, required=True, help='upper degree')
+	parser.add_argument('--lower_lambda', metavar='lower_lambda', type=int, default=-2, required=True, help='lower lambda')
+	parser.add_argument('--upper_lambda', metavar='upper_lambda', type=int, default=2, required=True, help='upper_lambda')
+	
+	args = parser.parse_args()
+    
+	rpr_cali(args.ho_num, args.k_num, args.bin_num, args.data_dire, args.lower_degree, args.upper_degree, agrs.lower_lambda, args.upper_lambda)
