@@ -124,12 +124,12 @@ if __name__ == '__main__':
     parser.add_argument('--k_num', metavar='k_num', type=int, default=None, required=True, help='k-fold cross validation')
     parser.add_argument('--bin_num', metavar='bin_num', type=int, default=None, required=True, help='number of bins')
     parser.add_argument('--data_dire', metavar='data_dire', default=None, help='data directory')
-	parser.add_argument('--lower_degree', metavar='lower_degree', type=int, default=4, required=True, help='lower degree')
-	parser.add_argument('--upper_degree', metavar='upper_degree', type=int, default=15, required=True, help='upper degree')
-	parser.add_argument('--lower_lambda', metavar='lower_lambda', type=int, default=-2, required=True, help='lower lambda')
-	parser.add_argument('--upper_lambda', metavar='upper_lambda', type=int, default=2, required=True, help='upper_lambda')
+    parser.add_argument('--lower_degree', metavar='lower_degree', type=int, default=4, required=True, help='lower degree')
+    parser.add_argument('--upper_degree', metavar='upper_degree', type=int, default=15, required=True, help='upper degree')
+    parser.add_argument('--lower_lambda', metavar='lower_lambda', type=int, default=-2, required=True, help='lower lambda')
+    parser.add_argument('--upper_lambda', metavar='upper_lambda', type=int, default=2, required=True, help='upper_lambda')
 	
-	args = parser.parse_args()
+    args = parser.parse_args()
     
-	rpr_cali(args.ho_num, args.k_num, args.bin_num, args.data_dire, args.lower_degree, args.upper_degree, agrs.lower_lambda, args.upper_lambda)
+    rpr_cali(args.ho_num, args.k_num, args.bin_num, args.data_dire, args.lower_degree, args.upper_degree, agrs.lower_lambda, args.upper_lambda)
 
