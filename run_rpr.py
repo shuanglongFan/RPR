@@ -131,5 +131,5 @@ if __name__ == '__main__':
 	
     args = parser.parse_args()
     
-    rpr_cali(args.ho_num, args.k_num, args.bin_num, args.data_dire, args.lower_degree, args.upper_degree, agrs.lower_lambda, args.upper_lambda)
+    rpr_cali(args.ho_num, args.k_num, args.bin_num, args.data_dire, args.lower_degree, args.upper_degree, args.lower_lambda, args.upper_lambda)
 
